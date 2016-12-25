@@ -1,15 +1,11 @@
 package testexam.dev;
-
 import java.io.*;
 import java.math.*;
 import java.text.*;
 import java.util.*;
-
 public class test_salsry {
-
     public static void main(String[] args) throws IOException, FileNotFoundException, UnsupportedEncodingException, ParseException {
-        FileInputStream path = new FileInputStream("F:\\TestExam-DEV\\1.working_time.log");
-        InputStreamReader file = new InputStreamReader(path, "TIS-620");
+        BufferedReader file = new BufferedReader(new InputStreamReader(new FileInputStream("F:\\Exam-DEV\\1.working_time.log"), "TIS-620"));
         try {
             BufferedReader br = new BufferedReader(file);
             String line;
@@ -37,7 +33,6 @@ public class test_salsry {
                         System.out.println("เวลาออกงาน " + timeout + " น.");
                         double   d = money(date, date2);
                         System.out.println("ค่าแรง/วัน : " + d + " บาท");
-
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -52,6 +47,7 @@ public class test_salsry {
         double time = date2.getTime() - date.getTime();
         double sum =0;
         double Money_D2 = 290/8;
+        
         NumberFormat nf = NumberFormat.getNumberInstance();
         nf.setMaximumFractionDigits(0);
         nf.setRoundingMode(RoundingMode.HALF_UP);
